@@ -23,6 +23,17 @@ const oauth = OAuth({
     },
 });
 
+app.get("/", async (req, res) => {
+    try {
+        res.json({"Success" : "success"})
+    }
+    catch(error) {
+        console.log("Error" , error);
+        res.json({"Error" : error})
+
+    }
+} )
+
 app.get('/auth/x/request-token', async (req, res) => {
     const requestData = {
         url: 'https://api.twitter.com/oauth/request_token',
